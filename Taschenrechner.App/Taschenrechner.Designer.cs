@@ -1,7 +1,7 @@
 ﻿
 namespace Taschenrechner.App
 {
-    partial class Form1
+    partial class Taschenrechner
     {
         /// <summary>
         /// Required designer variable.

@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Taschenrechner.App
 {
-    public partial class Form1 : Form
+    public partial class Taschenrechner : Form
     {
         private List<string> calc = new List<string>() { "",""};
         public string op;
@@ -15,7 +15,7 @@ namespace Taschenrechner.App
         public bool isopclicked = false;
         public CalcLogic logic = new CalcLogic();
 
-        public Form1()
+        public Taschenrechner()
         {
             InitializeComponent();
         }
