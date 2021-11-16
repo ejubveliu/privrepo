@@ -26,7 +26,6 @@ namespace Taschenrechner.App
             try
             {
                 logic.Oper(value);
-                textBox.Text += value;
             }
             catch (DivideByZeroException)
             {
@@ -37,7 +36,6 @@ namespace Taschenrechner.App
         public void clear_Click(object sender, EventArgs e)
         {
             logic.Clear();
-            textBox.Text = string.Empty;
         }
 
         public void equal_Click(object sender, EventArgs e)
