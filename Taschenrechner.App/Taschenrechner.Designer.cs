@@ -75,7 +75,7 @@ namespace Taschenrechner.App
             this.dot.TabIndex = 3;
             this.dot.Text = ".";
             this.dot.UseVisualStyleBackColor = true;
-            this.dot.Click += new System.EventHandler(this.dot_Click);
+            this.dot.Click += new System.EventHandler(this.oper_Click);
             // 
             // equal
             // 
@@ -108,7 +108,7 @@ namespace Taschenrechner.App
             this.zero.TabIndex = 6;
             this.zero.Text = "0";
             this.zero.UseVisualStyleBackColor = true;
-            this.zero.Click += new System.EventHandler(this.zero_Click);
+            this.zero.Click += new System.EventHandler(this.oper_Click);
             // 
             // one
             // 
@@ -119,7 +119,7 @@ namespace Taschenrechner.App
             this.one.TabIndex = 7;
             this.one.Text = "1";
             this.one.UseVisualStyleBackColor = true;
-            this.one.Click += new System.EventHandler(this.zero_Click);
+            this.one.Click += new System.EventHandler(this.oper_Click);
             // 
             // two
             // 
@@ -130,7 +130,7 @@ namespace Taschenrechner.App
             this.two.TabIndex = 8;
             this.two.Text = "2";
             this.two.UseVisualStyleBackColor = true;
-            this.two.Click += new System.EventHandler(this.zero_Click);
+            this.two.Click += new System.EventHandler(this.oper_Click);
             // 
             // three
             // 
@@ -141,7 +141,7 @@ namespace Taschenrechner.App
             this.three.TabIndex = 9;
             this.three.Text = "3";
             this.three.UseVisualStyleBackColor = true;
-            this.three.Click += new System.EventHandler(this.zero_Click);
+            this.three.Click += new System.EventHandler(this.oper_Click);
             // 
             // minus
             // 
@@ -174,7 +174,7 @@ namespace Taschenrechner.App
             this.six.TabIndex = 12;
             this.six.Text = "6";
             this.six.UseVisualStyleBackColor = true;
-            this.six.Click += new System.EventHandler(this.zero_Click);
+            this.six.Click += new System.EventHandler(this.oper_Click);
             // 
             // five
             // 
@@ -185,7 +185,7 @@ namespace Taschenrechner.App
             this.five.TabIndex = 13;
             this.five.Text = "5";
             this.five.UseVisualStyleBackColor = true;
-            this.five.Click += new System.EventHandler(this.zero_Click);
+            this.five.Click += new System.EventHandler(this.oper_Click);
             // 
             // four
             // 
@@ -196,7 +196,7 @@ namespace Taschenrechner.App
             this.four.TabIndex = 14;
             this.four.Text = "4";
             this.four.UseVisualStyleBackColor = true;
-            this.four.Click += new System.EventHandler(this.zero_Click);
+            this.four.Click += new System.EventHandler(this.oper_Click);
             // 
             // divide
             // 
@@ -218,7 +218,7 @@ namespace Taschenrechner.App
             this.nine.TabIndex = 16;
             this.nine.Text = "9";
             this.nine.UseVisualStyleBackColor = true;
-            this.nine.Click += new System.EventHandler(this.zero_Click);
+            this.nine.Click += new System.EventHandler(this.oper_Click);
             // 
             // eight
             // 
@@ -229,7 +229,7 @@ namespace Taschenrechner.App
             this.eight.TabIndex = 17;
             this.eight.Text = "8";
             this.eight.UseVisualStyleBackColor = true;
-            this.eight.Click += new System.EventHandler(this.zero_Click);
+            this.eight.Click += new System.EventHandler(this.oper_Click);
             // 
             // seven
             // 
@@ -240,7 +240,7 @@ namespace Taschenrechner.App
             this.seven.TabIndex = 18;
             this.seven.Text = "7";
             this.seven.UseVisualStyleBackColor = true;
-            this.seven.Click += new System.EventHandler(this.zero_Click);
+            this.seven.Click += new System.EventHandler(this.oper_Click);
             // 
             // clear
             // 
@@ -253,7 +253,7 @@ namespace Taschenrechner.App
             this.clear.UseVisualStyleBackColor = true;
             this.clear.Click += new System.EventHandler(this.clear_Click);
             // 
-            // Form1
+            // Taschenrechner
             // 
             this.ClientSize = new System.Drawing.Size(865, 522);
             this.Controls.Add(this.clear);
@@ -275,7 +275,7 @@ namespace Taschenrechner.App
             this.Controls.Add(this.dot);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.lab);
-            this.Name = "Form1";
+            this.Name = "Taschenrechner";
             this.ResumeLayout(false);
             this.PerformLayout();
 

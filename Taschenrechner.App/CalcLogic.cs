@@ -5,122 +5,176 @@ namespace Taschenrechner.App
 {
     public class CalcLogic
     {
-        /*public void Equals(string op, double result, double number1, double number2, List<string> calc)
+        private List<string> values = new List<string> { "", "" };
+        public double result = 0.0;
+        public string operation;
+
+        public event CalculationChangedHandler OnCalculationChanged;
+
+        public delegate void CalculationChangedHandler(object sender, string newResult);
+
+        public void Clear()//DONE
         {
+            values[0] = string.Empty;
+            values[1] = string.Empty;
+            operation = string.Empty;
+            result = 0.0;
         }
-        */
 
-        public void Oper(bool isopclicked, string opervar, double number1, double number2, List<string> calc, double result, string op)
+        public void Oper(string value)
         {
-            if (isopclicked)
-            {
-                number1 = Double.Parse(calc[0]);
-                number2 = Double.Parse(calc[1]);
+            if (value == "+" || value == "-" || value == "*" || value == "/")
+                HandleOperation(value);
+            else
+                HandleZahlen(value);
+        }//DONE
 
-                switch (op)
+        private void HandleOperation(string value)
+        {
+            if (!string.IsNullOrEmpty(values[0]) && !string.IsNullOrEmpty(values[1]))
+            {
+                switch (value)
                 {
                     case "+":
-                        calc = Addieren(calc);
+                        operation = "+";
+                        Addieren();
                         break;
 
                     case "-":
-                        calc = Subtrahieren(calc);
+                        operation = "-";
+                        Subtrahieren();
                         break;
 
                     case "*":
-                        calc = Multiplizieren(calc);
+                        operation = "*";
+                        Multiplizieren();
                         break;
 
                     case "/":
-                        if (number1 == 0)
-                        {
-                            //Taschenrechner.App.Form1.msgBox1();
-                        }
-                        else if (number2 == 0)
-                        {
-                            //Taschenrechner.App.Form1.msgBox2();
-                        }
-                        else
-                        {
-                            calc = Dividieren(calc);
-                        }
-
+                        operation = "/";
+                        Dividieren();
                         break;
 
                     default:
                         break;
                 }
 
-                isopclicked = false;
-                result = Double.Parse(calc[0]);
+                if (OnCalculationChanged != null)
+                    OnCalculationChanged(this, result.ToString());
             }
-
-            isopclicked = true;
-        }
-
-        public void Zero(List<string> calc, double number1, string num0)
-        {
-            calc[0] += String.Join(number1.ToString(), num0);
-        }
-
-        public void One(List<string> calc, string num0)
-        {
-            calc[1] += String.Join(calc[0], num0);
-        }
-
-        public void Clear(bool isopclicked, List<string> calc, string op, double result, double number1, double number2)
-        {
-            isopclicked = false;
-            calc[0] = string.Empty;
-            calc[1] = string.Empty;
-            op = string.Empty;
-            result = 0.0;
-            number1 = 0.0;
-            number2 = 0.0;
-        }
-        
-        public void Dot(bool isopclicked, List<string> calc, double number1, string dot)
-        {
-            if (isopclicked)
+            else if (!string.IsNullOrEmpty(values[0]))
             {
-                calc[1] += String.Join(calc[0], dot);
+                switch (value)
+                {
+                    case "+":
+                        operation = "+";
+                        break;
+
+                    case "-":
+                        operation = "-";
+                        break;
+
+                    case "*":
+                        operation = "*";
+                        break;
+
+                    case "/":
+                        operation = "/";
+                        break;
+
+                    default:
+                        break;
+
+                }
+
+                if (OnCalculationChanged != null)
+                    OnCalculationChanged(this, values[0].ToString());
+            }
+        }//DONE
+
+        private void HandleZahlen(string value)
+        {
+            if (value == ".")
+            {
+                if (!values[0].Contains("."))
+                    values[0] = String.Join(values[0], value);
+                else
+                    values[1] = String.Join(values[1], value);
             }
             else
             {
-                calc[0] += String.Join(number1.ToString(), dot);
+                if (string.IsNullOrEmpty(operation))
+                    values[0] += String.Join(values[0], value);
+                else
+                    values[1] += String.Join(values[1], value);
             }
+        }//DONE
+
+        public void Calc()
+        {
+            switch (operation)
+            {
+                case "+":
+                    values = Addieren();
+                    break;
+
+                case "-":
+                    values = Subtrahieren();
+                    break;
+
+                case "*":
+                    values = Multiplizieren();
+                    break;
+
+                case "/":
+                    values = Dividieren();
+                    break;
+
+                default:
+                    break;
+            }
+
+            if (OnCalculationChanged != null)
+                OnCalculationChanged(this, result.ToString());
         }
 
-        public List<string> Addieren(List<string> calc)
+        private List<string> Addieren()
         {
-            double result = Double.Parse(calc[0]) + Double.Parse(calc[1]);
-            calc[0] = result.ToString();
-            calc[1] = string.Empty;
-            return calc;
-        }
+            result = Double.Parse(values[0]) + Double.Parse(values[1]);
+            values[0] = result.ToString();
+            values[1] = string.Empty;
+            return values;
+        }//DONE
 
-        public List<string> Subtrahieren(List<string> calc)
+        private List<string> Subtrahieren()
         {
-            double result = Double.Parse(calc[0]) - Double.Parse(calc[1]);
-            calc[0] = result.ToString();
-            calc[1] = string.Empty;
-            return calc;
-        }
+            result = Double.Parse(values[0]) - Double.Parse(values[1]);
+            values[0] = result.ToString();
+            values[1] = string.Empty;
+            return values;
+        }//DONE
 
-        public List<string> Dividieren(List<string> calc)
+        private List<string> Multiplizieren()
         {
-            double result = Double.Parse(calc[0]) / Double.Parse(calc[1]);
-            calc[0] = result.ToString();
-            calc[1] = string.Empty;
-            return calc;
-        }
+            result = Double.Parse(values[0]) * Double.Parse(values[1]);
+            values[0] = result.ToString();
+            values[1] = string.Empty;
+            return values;
+        }//DONE
 
-        public List<string> Multiplizieren(List<string> calc)
+        private List<string> Dividieren()
         {
-            double result = Double.Parse(calc[0]) * Double.Parse(calc[1]);
-            calc[0] = result.ToString();
-            calc[1] = string.Empty;
-            return calc;
-        }
+            if (values[0] == "0")
+                throw new DivideByZeroException();
+            else if (values[1] == "0")
+                throw new DivideByZeroException();
+            else
+            {
+                result = Double.Parse(values[0]) / Double.Parse(values[1]);
+                values[0] = result.ToString();
+                values[1] = string.Empty;
+            }
+            return values;
+        }//DONE
     }
 }
