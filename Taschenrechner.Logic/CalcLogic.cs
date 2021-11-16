@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Taschenrechner.App
+namespace Taschenrechner.Logic
 {
     public class CalcLogic
     {
-        private List<string> values = new List<string> { "", ""};
+        private List<string> values = new List<string> { "", "" };
         public double result = 0.0;
         public string operation = string.Empty;
 
@@ -36,7 +36,6 @@ namespace Taschenrechner.App
         {
             if (!string.IsNullOrEmpty(values[0]))
             {
-
                 switch (value)
                 {
                     case "+":
@@ -85,7 +84,7 @@ namespace Taschenrechner.App
             {
                 if (!values[0].Contains(".") && operation == string.Empty)
                     values[0] += String.Join(values[0], value);
-                else if(operation!=string.Empty && !values[1].Contains("."))
+                else if (operation != string.Empty && !values[1].Contains("."))
                     values[1] += String.Join(values[1], value);
             }
             else
@@ -161,6 +160,7 @@ namespace Taschenrechner.App
                 values[1] = string.Empty;
             }
         }
+
         private void UpdateUI(string text)
         {
             if (OnCalculationChanged != null)
