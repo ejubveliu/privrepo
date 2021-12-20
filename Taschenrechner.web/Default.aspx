@@ -9,6 +9,9 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Panel ID="errormsg" runat="server" Visible="false">
+                <asp:Label ID="errormsgtxt" runat="server"></asp:Label>
+            </asp:Panel>
             <asp:TextBox ID="TextBox1" runat="server" ></asp:TextBox><br />
             <asp:Button ID="Button1" runat="server" Text="Clear" Height="35px" Width="65px" OnClick="clear_Click" /><br />
             <asp:Button ID="Button2" runat="server" Text="7" Height="50px" Width="50px" OnClick="oper_Click" />

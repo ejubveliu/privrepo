@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using Taschenrechner.Logic;
 
@@ -10,11 +6,42 @@ namespace Taschenrechner.web
 {
     public partial class Default : System.Web.UI.Page
     {
-        public CalcLogic logic = new CalcLogic();
+        public CalcLogic logic;
+
+        private const string SESSIONLOGIC = "session.logic";
 
         public Default()
         {
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            restore();
             logic.OnCalculationChanged += Logic_OnCalucationChanged;
+            base.OnLoad(e);
+
+            this.Hidemsg();
+        }
+
+        protected override void OnUnload(EventArgs e)
+        {
+            Backup();
+            base.OnUnload(e);
+        }
+
+        public void restore()
+        {
+            if(Session[SESSIONLOGIC]==null)
+            {
+                Session[SESSIONLOGIC] = new CalcLogic();
+            }
+
+            this.logic = Session[SESSIONLOGIC] as CalcLogic;
+        }
+
+        public void Backup()
+        {
+            Session[SESSIONLOGIC] = this.logic;
         }
 
         private void Logic_OnCalucationChanged(object sender, string newResult)
@@ -22,8 +49,7 @@ namespace Taschenrechner.web
             this.TextBox1.Text = newResult;
         }
 
-
-        protected void oper_Click(object sender, EventArgs e)
+        protected void oper_Click(object sender, EventArgs e)  
         {
             string value = ((Button)sender).Text;
 
@@ -33,7 +59,7 @@ namespace Taschenrechner.web
             }
             catch (DivideByZeroException)
             {
-                //MessageBox.Show("why don't you reinvent math??");
+                this.Showmsg("cannot divide by 0");
             }
         }
 
@@ -50,12 +76,19 @@ namespace Taschenrechner.web
             }
             catch (DivideByZeroException)
             {
-                //MessageBox.Show("why don't you reinvent math??");
+                this.Showmsg("cannot divide by 0");
             }
         }
-        protected void Page_Load(object sender, EventArgs e)
-        {
 
+        private void Showmsg(string msg)
+        {
+            this.errormsgtxt.Text = msg;
+            errormsg.Visible = true;
+        }
+
+        private void Hidemsg()
+        {
+            this.errormsg.Visible = false;
         }
     }
 }
