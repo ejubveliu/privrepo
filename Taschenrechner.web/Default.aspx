@@ -12,24 +12,24 @@
             <asp:Panel ID="errormsg" runat="server" Visible="false">
                 <asp:Label ID="errormsgtxt" runat="server"></asp:Label>
             </asp:Panel>
-            <asp:TextBox ID="TextBox1" runat="server" ></asp:TextBox><br />
-            <asp:Button ID="Button1" runat="server" Text="Clear" Height="35px" Width="65px" OnClick="clear_Click" /><br />
-            <asp:Button ID="Button2" runat="server" Text="7" Height="50px" Width="50px" OnClick="oper_Click" />
-            <asp:Button ID="Button3" runat="server" Text="8" Height="50px" Width="50px" OnClick="oper_Click" />
-            <asp:Button ID="Button4" runat="server" Text="9" Height="50px" Width="50px" OnClick="oper_Click" />
-            <asp:Button ID="Button5" runat="server" Text="/" Height="50px" Width="50px" OnClick="oper_Click" /><br />
-            <asp:Button ID="Button6" runat="server" Text="4" Height="50px" Width="50px" OnClick="oper_Click" />
-            <asp:Button ID="Button7" runat="server" Text="5" Height="50px" Width="50px" OnClick="oper_Click" />
-            <asp:Button ID="Button8" runat="server" Text="6" Height="50px" Width="50px" OnClick="oper_Click" />
-            <asp:Button ID="Button9" runat="server" Text="*" Height="50px" Width="50px" OnClick="oper_Click" /><br />
-            <asp:Button ID="Button10" runat="server" Text="1" Height="50px" Width="50px" OnClick="oper_Click" />
-            <asp:Button ID="Button11" runat="server" Text="2" Height="50px" Width="50px" OnClick="oper_Click" />
-            <asp:Button ID="Button12" runat="server" Text="3" Height="50px" Width="50px" OnClick="oper_Click" />
-            <asp:Button ID="Button13" runat="server" Text="-" Height="50px" Width="50px" OnClick="oper_Click" /><br />
-            <asp:Button ID="Button14" runat="server" Text="0" Height="50px" Width="50px" OnClick="oper_Click" />
-            <asp:Button ID="Button15" runat="server" Text="." Height="50px" Width="50px" OnClick="oper_Click" />
-            <asp:Button ID="Button16" runat="server" Text="=" Height="50px" Width="50px" OnClick="equal_Click" />
-            <asp:Button ID="Button17" runat="server" Text="+" Height="50px" Width="50px" OnClick="oper_Click" />
+            <asp:TextBox ID="TxtBox" runat="server" ></asp:TextBox><br />
+            <asp:Button ID="BtnClear" runat="server" Text="Clear" Height="35px" Width="65px" OnClick="Clear_Click" /><br />
+            <asp:Button ID="BtnSeven" runat="server" Text="7" Height="50px" Width="50px" OnClick="Oper_Click" />
+            <asp:Button ID="BtnEight" runat="server" Text="8" Height="50px" Width="50px" OnClick="Oper_Click" />
+            <asp:Button ID="BtnNine" runat="server" Text="9" Height="50px" Width="50px" OnClick="Oper_Click" />
+            <asp:Button ID="BtnSlash" runat="server" Text="/" Height="50px" Width="50px" OnClick="Oper_Click" /><br />
+            <asp:Button ID="BtnFour" runat="server" Text="4" Height="50px" Width="50px" OnClick="Oper_Click" />
+            <asp:Button ID="BtnFive" runat="server" Text="5" Height="50px" Width="50px" OnClick="Oper_Click" />
+            <asp:Button ID="BtnSix" runat="server" Text="6" Height="50px" Width="50px" OnClick="Oper_Click" />
+            <asp:Button ID="BtnMulti" runat="server" Text="*" Height="50px" Width="50px" OnClick="Oper_Click" /><br />
+            <asp:Button ID="BtnOne" runat="server" Text="1" Height="50px" Width="50px" OnClick="Oper_Click" />
+            <asp:Button ID="BtnTwo" runat="server" Text="2" Height="50px" Width="50px" OnClick="Oper_Click" />
+            <asp:Button ID="BtnThree" runat="server" Text="3" Height="50px" Width="50px" OnClick="Oper_Click" />
+            <asp:Button ID="BtnMinus" runat="server" Text="-" Height="50px" Width="50px" OnClick="Oper_Click" /><br />
+            <asp:Button ID="BtnZero" runat="server" Text="0" Height="50px" Width="50px" OnClick="Oper_Click" />
+            <asp:Button ID="BtnDot" runat="server" Text="." Height="50px" Width="50px" OnClick="Oper_Click" />
+            <asp:Button ID="BtnEqual" runat="server" Text="=" Height="50px" Width="50px" OnClick="Equal_Click" />
+            <asp:Button ID="BtnPlus" runat="server" Text="+" Height="50px" Width="50px" OnClick="Oper_Click" />
         </div>
     </form>
 </body>

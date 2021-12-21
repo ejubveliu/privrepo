@@ -16,7 +16,7 @@ namespace Taschenrechner.web
 
         protected override void OnLoad(EventArgs e)
         {
-            restore();
+            Restore();
             logic.OnCalculationChanged += Logic_OnCalucationChanged;
             base.OnLoad(e);
 
@@ -29,7 +29,7 @@ namespace Taschenrechner.web
             base.OnUnload(e);
         }
 
-        public void restore()
+        public void Restore()
         {
             if(Session[SESSIONLOGIC]==null)
             {
@@ -46,10 +46,10 @@ namespace Taschenrechner.web
 
         private void Logic_OnCalucationChanged(object sender, string newResult)
         {
-            this.TextBox1.Text = newResult;
+            this.TxtBox.Text = newResult;
         }
 
-        protected void oper_Click(object sender, EventArgs e)  
+        protected void Oper_Click(object sender, EventArgs e)  
         {
             string value = ((Button)sender).Text;
 
@@ -63,12 +63,12 @@ namespace Taschenrechner.web
             }
         }
 
-        protected void clear_Click(object sender, EventArgs e)
+        protected void Clear_Click(object sender, EventArgs e)
         {
             logic.Clear();
         }
 
-        protected void equal_Click(object sender, EventArgs e)
+        protected void Equal_Click(object sender, EventArgs e)
         {
             try
             {
