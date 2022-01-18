@@ -29,7 +29,7 @@ namespace Taschenrechner.Logic
             if (value == "+" || value == "-" || value == "*" || value == "/")
                 HandleOperation(value);
             else
-                HandleZahlen(value);
+                HandleNummer(value);
         }
 
         private void HandleOperation(string value)
@@ -78,7 +78,7 @@ namespace Taschenrechner.Logic
             }
         }
 
-        private void HandleZahlen(string value)
+        private void HandleNummer(string value)
         {
             if (value == ".")
             {

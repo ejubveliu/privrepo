@@ -84,11 +84,14 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SessionStateRouteHandler.cs" />
+    <Compile Include="SessionableControllerHandler.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HelloWorldController.cs" />
+    <Compile Include="CalcController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -100,6 +103,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Taschenrechner.App\Taschenrechner.App.csproj">
+      <Project>{81146e6a-c506-4201-a164-fdd9a1789d0f}</Project>
+      <Name>Taschenrechner.App</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Taschenrechner.Logic\Taschenrechner.Logic.csproj">
       <Project>{03f33fc4-777a-4ac4-b134-7b2f095fd8fa}</Project>
       <Name>Taschenrechner.Logic</Name>

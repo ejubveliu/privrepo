@@ -31,7 +31,7 @@ namespace Taschenrechner.web
 
         public void Restore()
         {
-            if(Session[SESSIONLOGIC]==null)
+            if (Session[SESSIONLOGIC] == null)
             {
                 Session[SESSIONLOGIC] = new CalcLogic();
             }
@@ -49,7 +49,7 @@ namespace Taschenrechner.web
             this.TxtBox.Text = newResult;
         }
 
-        protected void Oper_Click(object sender, EventArgs e)  
+        protected void Oper_Click(object sender, EventArgs e)
         {
             string value = ((Button)sender).Text;
 
