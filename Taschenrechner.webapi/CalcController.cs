@@ -25,6 +25,7 @@ namespace Taschenrechner.webapi
 
         ~CalcController()
         {
+            logic.OnCalculationChanged -= Logic_OnCalculationChanged;
             Backup();
         }
 
