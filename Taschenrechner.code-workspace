@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "Taschenrechner.angular"
+		}
+	],
+	"settings": {},
+"extensions": {
+"recommendations": [
+"angular.ng-template",
+"aaron-bond.better-comments",
+"docsmsft.docs-markdown",
+"esbenp.prettier-vscode",
+"santacodes.santacodes-region-viewer",
+]
+}
+}
