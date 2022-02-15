@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,16 +10,17 @@ export class TaschenrechnerService {
   constructor(
     private http: HttpClient) { }
 
-    
-  getClear(): Observable<number> {
-    return this.http.get<number>('/api/Calc/GetClear',{withCredentials:true});
+
+  getClear(): Observable<string> {
+    return this.http.get<string>('/api/Calc/GetClear', { withCredentials: true });
   }
 
-  getOper(): Observable<string> {
-    return this.http.get<string>('/api/Calc/GetOper',{withCredentials:true});
+  getOper(value: string): Observable<string> {
+    let params = new HttpParams().set('value', encodeURIComponent(value));
+    return this.http.get<string>('/api/Calc/GetOper', { withCredentials: true, params: params });
   }
 
-  getEqual(): Observable<number> {
-    return this.http.get<number>('/api/Calc/GetEqual',{withCredentials:true});
+  getEqual(): Observable<string> {
+    return this.http.get<string>('/api/Calc/GetEqual', { withCredentials: true });
   }
 }
