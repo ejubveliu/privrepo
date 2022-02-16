@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 
 namespace Taschenrechner.Logic
 {
@@ -36,43 +37,34 @@ namespace Taschenrechner.Logic
         {
             if (!string.IsNullOrEmpty(values[0]))
             {
-                switch (value)
+                if (!string.IsNullOrEmpty(values[1]))
                 {
-                    case "+":
-                        operation = "+";
-
-                        if (!string.IsNullOrEmpty(values[1]))
+                    switch (operation)
+                    {
+                        case "+":
                             Addieren();
+                            break;
 
-                        break;
-
-                    case "-":
-                        operation = "-";
-
-                        if (!string.IsNullOrEmpty(values[1]))
+                        case "-":
                             Subtrahieren();
 
-                        break;
+                            break;
 
-                    case "*":
-                        operation = "*";
-
-                        if (!string.IsNullOrEmpty(values[1]))
+                        case "*":
                             Multiplizieren();
 
-                        break;
+                            break;
 
-                    case "/":
-                        operation = "/";
-
-                        if (!string.IsNullOrEmpty(values[1]))
+                        case "/":
                             Dividieren();
 
-                        break;
+                            break;
 
-                    default:
-                        break;
+                        default:
+                            break;
+                    }
                 }
+                operation = value;
 
                 UpdateUI(!string.IsNullOrEmpty(values[1]) ? result.ToString() : GetMathString());
             }

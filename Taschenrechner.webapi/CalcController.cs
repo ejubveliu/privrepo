@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Web;
 using System.Web.Http;
 using Taschenrechner.Logic;
@@ -58,11 +59,14 @@ namespace Taschenrechner.webapi
         {
             try
             {
+                value = WebUtility.UrlDecode(value);
                 logic.Oper(value);
             }
             catch (DivideByZeroException)
             {
                 //this.Showmsg("cannot divide by 0");
+                logic.Clear();
+                result = "cannot divide by zero";
             }
 
             return this.result;
@@ -79,6 +83,8 @@ namespace Taschenrechner.webapi
             catch (DivideByZeroException)
             {
                 //this.Showmsg("cannot divide by 0");
+                logic.Clear();
+                result = "cannot divide by zero";
             }
 
             return this.result;
